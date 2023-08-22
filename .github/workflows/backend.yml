@@ -23,9 +23,15 @@ jobs :
           run: npm install --prefix backend
 
     lint:
+      runs-on: ubuntu-latest
+
+      steps:
         - name: Lint
           run: npm run lint --prefix backend
 
     test:
+      runs-on: ubuntu-latest
+
+      steps:
         - name: Test backend
           run: npm test --prefix backend
