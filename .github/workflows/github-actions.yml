@@ -19,13 +19,12 @@ jobs :
           node-version: 18.11.x
 
       - name: Cache
-        id: cache-npm
         uses: actions/cache@v3
-        env:
-          cache-name: cache-dependances
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-install-${{ hashFiles('backend/package-lock.json') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Installation des dépendances
         run: npm install
@@ -45,9 +44,15 @@ jobs :
         with:
           node-version: 18.11.x
 
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-        name: Installation des dépendances
+      - name: Installation des dépendances
         run: npm install
 
       - name: Lint
@@ -64,6 +69,14 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Installation des dépendances
         run: npm install
@@ -83,6 +96,14 @@ jobs :
         with:
           node-version: 18.11.x
 
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Installation des dépendances
         run: npm install
 
@@ -101,6 +122,14 @@ jobs :
         with:
           node-version: 18.11.x
 
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Installation des dépendances
         run: npm install
 
@@ -118,6 +147,14 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Installation des dépendances
         run: npm install
