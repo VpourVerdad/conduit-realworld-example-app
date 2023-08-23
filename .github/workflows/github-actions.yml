@@ -13,11 +13,19 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Cache backend node modules
+        id: cache-backend-npm
+        uses: actions/cache@v3
+        with:
+          path: backend/node_modules
+          key: ${{ runner.os }}-backend-build-${{ hashFiles('backend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-backend-build-
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
-          cache: npm
 
       - name: Installation des dépendances
         run: npm install
@@ -36,10 +44,10 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
-          cache: npm
 
       - name: Installation des dépendances
         run: npm install
+        if: steps.cache-backend-npm.outputs.cache-hit != 'true'
 
       - name: Lint
         run: npm run lint -w backend
@@ -55,7 +63,6 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
-          cache: npm
 
       - name: Installation des dépendances
         run: npm install
@@ -74,7 +81,6 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
-          cache: npm
 
       - name: Installation des dépendances
         run: npm install
@@ -93,7 +99,6 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
-          cache: npm
 
       - name: Installation des dépendances
         run: npm install
@@ -112,14 +117,9 @@ jobs :
         uses: actions/setup-node@v3
         with:
           node-version: 18.11.x
-          cache: npm
 
       - name: Installation des dépendances
         run: npm install
 
       - name: Test frontend
         run: npm test -w frontend
-
-  cache:
-    paths:
-      - ~/.npm
