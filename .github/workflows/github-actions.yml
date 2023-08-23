@@ -119,3 +119,7 @@ jobs :
 
       - name: Test frontend
         run: npm test -w frontend
+
+  cache:
+    paths:
+      - ~/.npm
