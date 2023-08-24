@@ -13,7 +13,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: .github/composite-actions/
+      - uses: .github/composite-actions
 
       - name: Build
         run: npm run build -w backend
@@ -24,7 +24,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: .github/composite-actions/
+      - uses: .github/composite-actions
 
       - name: Lint
         run: npm run lint -w backend
@@ -35,7 +35,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: .github/composite-actions/
+      - uses: .github/composite-actions
 
       - name: Test backend
         run: npm test -w backend
@@ -47,7 +47,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: .github/composite-actions/
+      - uses: .github/composite-actions
 
       - name: Build
         run: npm run build -w frontend
@@ -58,7 +58,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: .github/composite-actions/
+      - uses: .github/composite-actions
 
       - name: Lint
         run: npm run lint -w frontend
@@ -69,7 +69,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: .github/composite-actions/
+      - uses: .github/composite-actions
 
       - name: Test frontend
         run: npm test -w frontend
