@@ -111,4 +111,4 @@ jobs :
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
           asset_path: ./dist.zip
           asset_name: dist-v${{ github.run_number }}.zip
-          assert_content_type: application/zip
+          asset_content_type: application/zip
