@@ -13,7 +13,7 @@ jobs :
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: actions/composite-action@v1
+      - uses: ./.github/composite-actions
 
       - name: Build
         run: npm run build -w backend
