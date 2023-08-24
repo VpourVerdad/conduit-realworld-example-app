@@ -10,6 +10,9 @@ jobs :
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./github/composite-actions/
 
       - name: Build
@@ -18,6 +21,9 @@ jobs :
   backend-lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./github/composite-actions/
 
       - name: Lint
@@ -26,6 +32,9 @@ jobs :
   backend-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./github/composite-actions/
 
       - name: Test backend
@@ -35,6 +44,9 @@ jobs :
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./github/composite-actions/
 
       - name: Build
@@ -43,6 +55,9 @@ jobs :
   frontend-lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./github/composite-actions/
 
       - name: Lint
@@ -51,6 +66,9 @@ jobs :
   frontend-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./github/composite-actions/
 
       - name: Test frontend
