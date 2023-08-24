@@ -96,10 +96,19 @@ jobs :
 
       - name: Create Release
         uses : actions/create-release@v1
+        id: create_new_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          asset_path: ./dist.zip
-          asset_name: dist.zip
           tag_name: v${{ github.run_number }}
           release_name: Release v${{ github.run_number }}
+
+      - name: Upload Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./dist.zip
+          asset_name: dist-v${{ github.run_number }}.zip
+          assert_content_type: application/zip
