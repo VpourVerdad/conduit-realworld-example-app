@@ -91,7 +91,7 @@ jobs :
   create-release:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
-    needs: [frontend-build, backend-build-, frontend-test, backend-test, frontend-lint, backend-lint]
+    needs: [frontend-build, backend-build, frontend-test, backend-test, frontend-lint, backend-lint]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
