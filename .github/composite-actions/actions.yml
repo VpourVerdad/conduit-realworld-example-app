@@ -1,4 +1,4 @@
-name : Common Actions
+name : Actions
 description: Cache et setup
 runs :
   using: composite
