@@ -17,7 +17,6 @@ jobs :
 
       - name: Build
         run: npm run build -w backend
-        shell: bash
 
   backend-lint:
     runs-on: ubuntu-latest
