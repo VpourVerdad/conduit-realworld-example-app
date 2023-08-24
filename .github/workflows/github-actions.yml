@@ -83,7 +83,7 @@ jobs :
       - uses: ./.github/composite-actions
 
       - name: Create Release
-        uses : actions/create-release@v3
+        uses : actions/create-release@v1
         with:
           tag_name: v${{ github.run_number }}
           release_name: Release v${{ github.run_number }}
