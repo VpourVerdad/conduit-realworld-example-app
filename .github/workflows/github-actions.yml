@@ -12,33 +12,39 @@ jobs :
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        shell: bash
 
       - uses: ./.github/composite-actions
 
       - name: Build
         run: npm run build -w backend
+        shell: bash
 
   backend-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        shell: bash
 
       - uses: ./.github/composite-actions
 
       - name: Lint
         run: npm run lint -w backend
+        shell: bash
 
   backend-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        shell: bash
 
       - uses: ./.github/composite-actions
 
       - name: Test backend
         run: npm test -w backend
+        shell: bash
 
   frontend-build:
     runs-on: ubuntu-latest
@@ -46,30 +52,36 @@ jobs :
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        shell: bash
 
       - uses: ./.github/composite-actions
 
       - name: Build
         run: npm run build -w frontend
+        shell: bash
 
   frontend-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        shell: bash
 
       - uses: ./.github/composite-actions
 
       - name: Lint
         run: npm run lint -w frontend
+        shell: bash
 
   frontend-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        shell: bash
 
       - uses: ./.github/composite-actions
 
       - name: Test frontend
         run: npm test -w frontend
+        shell: bash

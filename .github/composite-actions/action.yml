@@ -8,7 +8,7 @@ runs :
       uses: actions/setup-node@v3
       with:
         node-version: 18.11.x
-      shell: bash
+
 
     - name: Cache
       uses: actions/cache@v3
@@ -17,8 +17,6 @@ runs :
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-      shell: bash
 
     - name: Installation des dépendances
       run: npm install
-      shell: bash
