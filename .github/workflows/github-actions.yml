@@ -82,10 +82,23 @@ jobs :
 
       - uses: ./.github/composite-actions
 
+      - name: Create Directory
+        run: mkdir dist
+
+      - name: Copy Frontend
+        run: cp -r ./frontend dist/
+
+      - name: Copy Backend
+        run: cp -r ./backend dist/
+
+      - name: Create Zip Archive
+        run: zip -r dist.zip dist
+
       - name: Create Release
         uses : actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          files: dist.zip
           tag_name: v${{ github.run_number }}
           release_name: Release v${{ github.run_number }}
